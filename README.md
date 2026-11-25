@@ -104,7 +104,11 @@ Target=090  CCR=1500  Pulse=1.500ms
 
 `printf` 重定向用的是 GCC 的 `_write`（不是 Keil 的 `__io_putchar`），内部走 `HAL_UART_Transmit` 阻塞发送。一次几十字节，阻塞不到 4ms，够用。
 
-串口截图见 [`docs/serial.png`](docs/serial.png)，三行格式与 OLED 完全同源。
+串口实拍（COM3，115200，文本模式）：
+
+![串口输出](docs/serial.png)
+
+五个角度以 1 秒间隔循环输出，每行三组数值与 OLED 三行完全同源：`CCR` 即比较寄存器值（1 计数 = 1µs），`Pulse` 就是该值的毫秒表示。
 
 ## 六、进阶 A：按键调角（选做）
 
