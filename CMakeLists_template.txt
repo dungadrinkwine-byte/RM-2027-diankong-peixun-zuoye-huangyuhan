@@ -2,6 +2,9 @@
 set(CMAKE_SYSTEM_NAME Generic)
 set(CMAKE_SYSTEM_VERSION 1)
 ${cmakeRequiredVersion}
+
+# 交叉工具链（arm-none-eabi），详见 cmake/gcc-arm-none-eabi.cmake
+set(CMAKE_TOOLCHAIN_FILE "$${CMAKE_SOURCE_DIR}/cmake/gcc-arm-none-eabi.cmake")
 # specify cross-compilers and tools
 set(CMAKE_C_COMPILER arm-none-eabi-gcc)
 set(CMAKE_CXX_COMPILER arm-none-eabi-g++)

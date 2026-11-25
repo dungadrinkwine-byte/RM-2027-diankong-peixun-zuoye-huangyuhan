@@ -157,6 +157,8 @@ if ((now - s_seqTick) >= SEQ_HOLD_MS)   /* 到点才推进，没到就立刻返�
 RM2027_Servo/
 ├── RM2027_Servo.ioc          CubeMX 配置（TIM2 PWM / USART1 / GPIO）
 ├── CMakeLists.txt
+├── cmake/
+│   └── gcc-arm-none-eabi.cmake   交叉工具链定义（CMakeLists 通过 CMAKE_TOOLCHAIN_FILE 引用）
 ├── Core/
 │   ├── Inc/  main.h  gpio.h  tim.h  usart.h  Servo.h  OLED.h  OLED_Font.h
 │   ├── Src/  main.c  gpio.c  tim.c  usart.c  Servo.c  OLED.c
