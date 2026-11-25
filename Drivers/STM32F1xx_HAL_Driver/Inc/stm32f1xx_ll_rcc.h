@@ -1,0 +1,977 @@
+#ifndef __STM32F1xx_LL_RCC_H
+#define __STM32F1xx_LL_RCC_H
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+#include "stm32f1xx.h"
+
+#if defined(RCC)
+
+#if defined(USE_FULL_LL_DRIVER)
+
+#endif
+
+#if defined(USE_FULL_LL_DRIVER)
+
+typedef struct
+{
+  uint32_t SYSCLK_Frequency;
+  uint32_t HCLK_Frequency;
+  uint32_t PCLK1_Frequency;
+  uint32_t PCLK2_Frequency;
+} LL_RCC_ClocksTypeDef;
+
+#endif
+
+#if !defined  (HSE_VALUE)
+#define HSE_VALUE    8000000U
+#endif
+
+#if !defined  (HSI_VALUE)
+#define HSI_VALUE    8000000U
+#endif
+
+#if !defined  (LSE_VALUE)
+#define LSE_VALUE    32768U
+#endif
+
+#if !defined  (LSI_VALUE)
+#define LSI_VALUE    40000U
+#endif
+
+#define LL_RCC_CIR_LSIRDYC                RCC_CIR_LSIRDYC
+#define LL_RCC_CIR_LSERDYC                RCC_CIR_LSERDYC
+#define LL_RCC_CIR_HSIRDYC                RCC_CIR_HSIRDYC
+#define LL_RCC_CIR_HSERDYC                RCC_CIR_HSERDYC
+#define LL_RCC_CIR_PLLRDYC                RCC_CIR_PLLRDYC
+#define LL_RCC_CIR_PLL3RDYC               RCC_CIR_PLL3RDYC
+#define LL_RCC_CIR_PLL2RDYC               RCC_CIR_PLL2RDYC
+#define LL_RCC_CIR_CSSC                   RCC_CIR_CSSC
+
+#define LL_RCC_CIR_LSIRDYF                RCC_CIR_LSIRDYF
+#define LL_RCC_CIR_LSERDYF                RCC_CIR_LSERDYF
+#define LL_RCC_CIR_HSIRDYF                RCC_CIR_HSIRDYF
+#define LL_RCC_CIR_HSERDYF                RCC_CIR_HSERDYF
+#define LL_RCC_CIR_PLLRDYF                RCC_CIR_PLLRDYF
+#define LL_RCC_CIR_PLL3RDYF               RCC_CIR_PLL3RDYF
+#define LL_RCC_CIR_PLL2RDYF               RCC_CIR_PLL2RDYF
+#define LL_RCC_CIR_CSSF                   RCC_CIR_CSSF
+#define LL_RCC_CSR_PINRSTF                RCC_CSR_PINRSTF
+#define LL_RCC_CSR_PORRSTF                RCC_CSR_PORRSTF
+#define LL_RCC_CSR_SFTRSTF                RCC_CSR_SFTRSTF
+#define LL_RCC_CSR_IWDGRSTF               RCC_CSR_IWDGRSTF
+#define LL_RCC_CSR_WWDGRSTF               RCC_CSR_WWDGRSTF
+#define LL_RCC_CSR_LPWRRSTF               RCC_CSR_LPWRRSTF
+
+#define LL_RCC_CIR_LSIRDYIE               RCC_CIR_LSIRDYIE
+#define LL_RCC_CIR_LSERDYIE               RCC_CIR_LSERDYIE
+#define LL_RCC_CIR_HSIRDYIE               RCC_CIR_HSIRDYIE
+#define LL_RCC_CIR_HSERDYIE               RCC_CIR_HSERDYIE
+#define LL_RCC_CIR_PLLRDYIE               RCC_CIR_PLLRDYIE
+#define LL_RCC_CIR_PLL3RDYIE              RCC_CIR_PLL3RDYIE
+#define LL_RCC_CIR_PLL2RDYIE              RCC_CIR_PLL2RDYIE
+
+#if defined(RCC_CFGR2_PREDIV2)
+
+#define LL_RCC_HSE_PREDIV2_DIV_1           RCC_CFGR2_PREDIV2_DIV1
+#define LL_RCC_HSE_PREDIV2_DIV_2           RCC_CFGR2_PREDIV2_DIV2
+#define LL_RCC_HSE_PREDIV2_DIV_3           RCC_CFGR2_PREDIV2_DIV3
+#define LL_RCC_HSE_PREDIV2_DIV_4           RCC_CFGR2_PREDIV2_DIV4
+#define LL_RCC_HSE_PREDIV2_DIV_5           RCC_CFGR2_PREDIV2_DIV5
+#define LL_RCC_HSE_PREDIV2_DIV_6           RCC_CFGR2_PREDIV2_DIV6
+#define LL_RCC_HSE_PREDIV2_DIV_7           RCC_CFGR2_PREDIV2_DIV7
+#define LL_RCC_HSE_PREDIV2_DIV_8           RCC_CFGR2_PREDIV2_DIV8
+#define LL_RCC_HSE_PREDIV2_DIV_9           RCC_CFGR2_PREDIV2_DIV9
+#define LL_RCC_HSE_PREDIV2_DIV_10          RCC_CFGR2_PREDIV2_DIV10
+#define LL_RCC_HSE_PREDIV2_DIV_11          RCC_CFGR2_PREDIV2_DIV11
+#define LL_RCC_HSE_PREDIV2_DIV_12          RCC_CFGR2_PREDIV2_DIV12
+#define LL_RCC_HSE_PREDIV2_DIV_13          RCC_CFGR2_PREDIV2_DIV13
+#define LL_RCC_HSE_PREDIV2_DIV_14          RCC_CFGR2_PREDIV2_DIV14
+#define LL_RCC_HSE_PREDIV2_DIV_15          RCC_CFGR2_PREDIV2_DIV15
+#define LL_RCC_HSE_PREDIV2_DIV_16          RCC_CFGR2_PREDIV2_DIV16
+
+#endif
+
+#define LL_RCC_SYS_CLKSOURCE_HSI           RCC_CFGR_SW_HSI
+#define LL_RCC_SYS_CLKSOURCE_HSE           RCC_CFGR_SW_HSE
+#define LL_RCC_SYS_CLKSOURCE_PLL           RCC_CFGR_SW_PLL
+
+#define LL_RCC_SYS_CLKSOURCE_STATUS_HSI    RCC_CFGR_SWS_HSI
+#define LL_RCC_SYS_CLKSOURCE_STATUS_HSE    RCC_CFGR_SWS_HSE
+#define LL_RCC_SYS_CLKSOURCE_STATUS_PLL    RCC_CFGR_SWS_PLL
+
+#define LL_RCC_SYSCLK_DIV_1                RCC_CFGR_HPRE_DIV1
+#define LL_RCC_SYSCLK_DIV_2                RCC_CFGR_HPRE_DIV2
+#define LL_RCC_SYSCLK_DIV_4                RCC_CFGR_HPRE_DIV4
+#define LL_RCC_SYSCLK_DIV_8                RCC_CFGR_HPRE_DIV8
+#define LL_RCC_SYSCLK_DIV_16               RCC_CFGR_HPRE_DIV16
+#define LL_RCC_SYSCLK_DIV_64               RCC_CFGR_HPRE_DIV64
+#define LL_RCC_SYSCLK_DIV_128              RCC_CFGR_HPRE_DIV128
+#define LL_RCC_SYSCLK_DIV_256              RCC_CFGR_HPRE_DIV256
+#define LL_RCC_SYSCLK_DIV_512              RCC_CFGR_HPRE_DIV512
+
+#define LL_RCC_APB1_DIV_1                  RCC_CFGR_PPRE1_DIV1
+#define LL_RCC_APB1_DIV_2                  RCC_CFGR_PPRE1_DIV2
+#define LL_RCC_APB1_DIV_4                  RCC_CFGR_PPRE1_DIV4
+#define LL_RCC_APB1_DIV_8                  RCC_CFGR_PPRE1_DIV8
+#define LL_RCC_APB1_DIV_16                 RCC_CFGR_PPRE1_DIV16
+
+#define LL_RCC_APB2_DIV_1                  RCC_CFGR_PPRE2_DIV1
+#define LL_RCC_APB2_DIV_2                  RCC_CFGR_PPRE2_DIV2
+#define LL_RCC_APB2_DIV_4                  RCC_CFGR_PPRE2_DIV4
+#define LL_RCC_APB2_DIV_8                  RCC_CFGR_PPRE2_DIV8
+#define LL_RCC_APB2_DIV_16                 RCC_CFGR_PPRE2_DIV16
+
+#define LL_RCC_MCO1SOURCE_NOCLOCK          RCC_CFGR_MCO_NOCLOCK
+#define LL_RCC_MCO1SOURCE_SYSCLK           RCC_CFGR_MCO_SYSCLK
+#define LL_RCC_MCO1SOURCE_HSI              RCC_CFGR_MCO_HSI
+#define LL_RCC_MCO1SOURCE_HSE              RCC_CFGR_MCO_HSE
+#define LL_RCC_MCO1SOURCE_PLLCLK_DIV_2     RCC_CFGR_MCO_PLLCLK_DIV2
+#if defined(RCC_CFGR_MCO_PLL2CLK)
+#define LL_RCC_MCO1SOURCE_PLL2CLK          RCC_CFGR_MCO_PLL2CLK
+#endif
+#if defined(RCC_CFGR_MCO_PLL3CLK_DIV2)
+#define LL_RCC_MCO1SOURCE_PLLI2SCLK_DIV2   RCC_CFGR_MCO_PLL3CLK_DIV2
+#endif
+#if defined(RCC_CFGR_MCO_EXT_HSE)
+#define LL_RCC_MCO1SOURCE_EXT_HSE          RCC_CFGR_MCO_EXT_HSE
+#endif
+#if defined(RCC_CFGR_MCO_PLL3CLK)
+#define LL_RCC_MCO1SOURCE_PLLI2SCLK        RCC_CFGR_MCO_PLL3CLK
+#endif
+
+#if defined(USE_FULL_LL_DRIVER)
+
+#define LL_RCC_PERIPH_FREQUENCY_NO         0x00000000U
+#define LL_RCC_PERIPH_FREQUENCY_NA         0xFFFFFFFFU
+
+#endif
+
+#if defined(RCC_CFGR2_I2S2SRC)
+
+#define LL_RCC_I2S2_CLKSOURCE_SYSCLK        RCC_CFGR2_I2S2SRC
+#define LL_RCC_I2S2_CLKSOURCE_PLLI2S_VCO    (uint32_t)(RCC_CFGR2_I2S2SRC | (RCC_CFGR2_I2S2SRC >> 16U))
+#define LL_RCC_I2S3_CLKSOURCE_SYSCLK        RCC_CFGR2_I2S3SRC
+#define LL_RCC_I2S3_CLKSOURCE_PLLI2S_VCO    (uint32_t)(RCC_CFGR2_I2S3SRC | (RCC_CFGR2_I2S3SRC >> 16U))
+
+#endif
+
+#if defined(USB_OTG_FS) || defined(USB)
+
+#if defined(RCC_CFGR_USBPRE)
+#define LL_RCC_USB_CLKSOURCE_PLL             RCC_CFGR_USBPRE
+#define LL_RCC_USB_CLKSOURCE_PLL_DIV_1_5     0x00000000U
+#endif
+#if defined(RCC_CFGR_OTGFSPRE)
+#define LL_RCC_USB_CLKSOURCE_PLL_DIV_2       RCC_CFGR_OTGFSPRE
+#define LL_RCC_USB_CLKSOURCE_PLL_DIV_3       0x00000000U
+#endif
+
+#endif
+
+#define LL_RCC_ADC_CLKSRC_PCLK2_DIV_2    RCC_CFGR_ADCPRE_DIV2
+#define LL_RCC_ADC_CLKSRC_PCLK2_DIV_4    RCC_CFGR_ADCPRE_DIV4
+#define LL_RCC_ADC_CLKSRC_PCLK2_DIV_6    RCC_CFGR_ADCPRE_DIV6
+#define LL_RCC_ADC_CLKSRC_PCLK2_DIV_8    RCC_CFGR_ADCPRE_DIV8
+
+#if defined(RCC_CFGR2_I2S2SRC)
+
+#define LL_RCC_I2S2_CLKSOURCE              RCC_CFGR2_I2S2SRC
+#define LL_RCC_I2S3_CLKSOURCE              RCC_CFGR2_I2S3SRC
+
+#endif
+
+#if defined(USB_OTG_FS) || defined(USB)
+
+#define LL_RCC_USB_CLKSOURCE               0x00400000U
+
+#endif
+
+#define LL_RCC_ADC_CLKSOURCE               RCC_CFGR_ADCPRE
+
+#define LL_RCC_RTC_CLKSOURCE_NONE          0x00000000U
+#define LL_RCC_RTC_CLKSOURCE_LSE           RCC_BDCR_RTCSEL_0
+#define LL_RCC_RTC_CLKSOURCE_LSI           RCC_BDCR_RTCSEL_1
+#define LL_RCC_RTC_CLKSOURCE_HSE_DIV128    RCC_BDCR_RTCSEL
+
+#if defined(RCC_CFGR_PLLMULL2)
+#define LL_RCC_PLL_MUL_2                   RCC_CFGR_PLLMULL2
+#endif
+#if defined(RCC_CFGR_PLLMULL3)
+#define LL_RCC_PLL_MUL_3                   RCC_CFGR_PLLMULL3
+#endif
+#define LL_RCC_PLL_MUL_4                   RCC_CFGR_PLLMULL4
+#define LL_RCC_PLL_MUL_5                   RCC_CFGR_PLLMULL5
+#define LL_RCC_PLL_MUL_6                   RCC_CFGR_PLLMULL6
+#define LL_RCC_PLL_MUL_7                   RCC_CFGR_PLLMULL7
+#define LL_RCC_PLL_MUL_8                   RCC_CFGR_PLLMULL8
+#define LL_RCC_PLL_MUL_9                   RCC_CFGR_PLLMULL9
+#if defined(RCC_CFGR_PLLMULL6_5)
+#define LL_RCC_PLL_MUL_6_5                 RCC_CFGR_PLLMULL6_5
+#else
+#define LL_RCC_PLL_MUL_10                  RCC_CFGR_PLLMULL10
+#define LL_RCC_PLL_MUL_11                  RCC_CFGR_PLLMULL11
+#define LL_RCC_PLL_MUL_12                  RCC_CFGR_PLLMULL12
+#define LL_RCC_PLL_MUL_13                  RCC_CFGR_PLLMULL13
+#define LL_RCC_PLL_MUL_14                  RCC_CFGR_PLLMULL14
+#define LL_RCC_PLL_MUL_15                  RCC_CFGR_PLLMULL15
+#define LL_RCC_PLL_MUL_16                  RCC_CFGR_PLLMULL16
+#endif
+
+#define LL_RCC_PLLSOURCE_HSI_DIV_2         0x00000000U
+#define LL_RCC_PLLSOURCE_HSE               RCC_CFGR_PLLSRC
+#if defined(RCC_CFGR2_PREDIV1SRC)
+#define LL_RCC_PLLSOURCE_PLL2              (RCC_CFGR_PLLSRC | RCC_CFGR2_PREDIV1SRC << 4U)
+#endif
+
+#if defined(RCC_CFGR2_PREDIV1)
+#define LL_RCC_PLLSOURCE_HSE_DIV_1         (RCC_CFGR_PLLSRC | RCC_CFGR2_PREDIV1_DIV1)
+#define LL_RCC_PLLSOURCE_HSE_DIV_2         (RCC_CFGR_PLLSRC | RCC_CFGR2_PREDIV1_DIV2)
+#define LL_RCC_PLLSOURCE_HSE_DIV_3         (RCC_CFGR_PLLSRC | RCC_CFGR2_PREDIV1_DIV3)
+#define LL_RCC_PLLSOURCE_HSE_DIV_4         (RCC_CFGR_PLLSRC | RCC_CFGR2_PREDIV1_DIV4)
+#define LL_RCC_PLLSOURCE_HSE_DIV_5         (RCC_CFGR_PLLSRC | RCC_CFGR2_PREDIV1_DIV5)
+#define LL_RCC_PLLSOURCE_HSE_DIV_6         (RCC_CFGR_PLLSRC | RCC_CFGR2_PREDIV1_DIV6)
+#define LL_RCC_PLLSOURCE_HSE_DIV_7         (RCC_CFGR_PLLSRC | RCC_CFGR2_PREDIV1_DIV7)
+#define LL_RCC_PLLSOURCE_HSE_DIV_8         (RCC_CFGR_PLLSRC | RCC_CFGR2_PREDIV1_DIV8)
+#define LL_RCC_PLLSOURCE_HSE_DIV_9         (RCC_CFGR_PLLSRC | RCC_CFGR2_PREDIV1_DIV9)
+#define LL_RCC_PLLSOURCE_HSE_DIV_10        (RCC_CFGR_PLLSRC | RCC_CFGR2_PREDIV1_DIV10)
+#define LL_RCC_PLLSOURCE_HSE_DIV_11        (RCC_CFGR_PLLSRC | RCC_CFGR2_PREDIV1_DIV11)
+#define LL_RCC_PLLSOURCE_HSE_DIV_12        (RCC_CFGR_PLLSRC | RCC_CFGR2_PREDIV1_DIV12)
+#define LL_RCC_PLLSOURCE_HSE_DIV_13        (RCC_CFGR_PLLSRC | RCC_CFGR2_PREDIV1_DIV13)
+#define LL_RCC_PLLSOURCE_HSE_DIV_14        (RCC_CFGR_PLLSRC | RCC_CFGR2_PREDIV1_DIV14)
+#define LL_RCC_PLLSOURCE_HSE_DIV_15        (RCC_CFGR_PLLSRC | RCC_CFGR2_PREDIV1_DIV15)
+#define LL_RCC_PLLSOURCE_HSE_DIV_16        (RCC_CFGR_PLLSRC | RCC_CFGR2_PREDIV1_DIV16)
+#if defined(RCC_CFGR2_PREDIV1SRC)
+#define LL_RCC_PLLSOURCE_PLL2_DIV_1        (RCC_CFGR_PLLSRC | RCC_CFGR2_PREDIV1_DIV1 | RCC_CFGR2_PREDIV1SRC << 4U)
+#define LL_RCC_PLLSOURCE_PLL2_DIV_2        (RCC_CFGR_PLLSRC | RCC_CFGR2_PREDIV1_DIV2 | RCC_CFGR2_PREDIV1SRC << 4U)
+#define LL_RCC_PLLSOURCE_PLL2_DIV_3        (RCC_CFGR_PLLSRC | RCC_CFGR2_PREDIV1_DIV3 | RCC_CFGR2_PREDIV1SRC << 4U)
+#define LL_RCC_PLLSOURCE_PLL2_DIV_4        (RCC_CFGR_PLLSRC | RCC_CFGR2_PREDIV1_DIV4 | RCC_CFGR2_PREDIV1SRC << 4U)
+#define LL_RCC_PLLSOURCE_PLL2_DIV_5        (RCC_CFGR_PLLSRC | RCC_CFGR2_PREDIV1_DIV5 | RCC_CFGR2_PREDIV1SRC << 4U)
+#define LL_RCC_PLLSOURCE_PLL2_DIV_6        (RCC_CFGR_PLLSRC | RCC_CFGR2_PREDIV1_DIV6 | RCC_CFGR2_PREDIV1SRC << 4U)
+#define LL_RCC_PLLSOURCE_PLL2_DIV_7        (RCC_CFGR_PLLSRC | RCC_CFGR2_PREDIV1_DIV7 | RCC_CFGR2_PREDIV1SRC << 4U)
+#define LL_RCC_PLLSOURCE_PLL2_DIV_8        (RCC_CFGR_PLLSRC | RCC_CFGR2_PREDIV1_DIV8 | RCC_CFGR2_PREDIV1SRC << 4U)
+#define LL_RCC_PLLSOURCE_PLL2_DIV_9        (RCC_CFGR_PLLSRC | RCC_CFGR2_PREDIV1_DIV9 | RCC_CFGR2_PREDIV1SRC << 4U)
+#define LL_RCC_PLLSOURCE_PLL2_DIV_10       (RCC_CFGR_PLLSRC | RCC_CFGR2_PREDIV1_DIV10 | RCC_CFGR2_PREDIV1SRC << 4U)
+#define LL_RCC_PLLSOURCE_PLL2_DIV_11       (RCC_CFGR_PLLSRC | RCC_CFGR2_PREDIV1_DIV11 | RCC_CFGR2_PREDIV1SRC << 4U)
+#define LL_RCC_PLLSOURCE_PLL2_DIV_12       (RCC_CFGR_PLLSRC | RCC_CFGR2_PREDIV1_DIV12 | RCC_CFGR2_PREDIV1SRC << 4U)
+#define LL_RCC_PLLSOURCE_PLL2_DIV_13       (RCC_CFGR_PLLSRC | RCC_CFGR2_PREDIV1_DIV13 | RCC_CFGR2_PREDIV1SRC << 4U)
+#define LL_RCC_PLLSOURCE_PLL2_DIV_14       (RCC_CFGR_PLLSRC | RCC_CFGR2_PREDIV1_DIV14 | RCC_CFGR2_PREDIV1SRC << 4U)
+#define LL_RCC_PLLSOURCE_PLL2_DIV_15       (RCC_CFGR_PLLSRC | RCC_CFGR2_PREDIV1_DIV15 | RCC_CFGR2_PREDIV1SRC << 4U)
+#define LL_RCC_PLLSOURCE_PLL2_DIV_16       (RCC_CFGR_PLLSRC | RCC_CFGR2_PREDIV1_DIV16 | RCC_CFGR2_PREDIV1SRC << 4U)
+#endif
+#else
+#define LL_RCC_PLLSOURCE_HSE_DIV_1         (RCC_CFGR_PLLSRC | 0x00000000U)
+#define LL_RCC_PLLSOURCE_HSE_DIV_2         (RCC_CFGR_PLLSRC | RCC_CFGR_PLLXTPRE)
+#endif
+
+#if defined(RCC_CFGR2_PREDIV1)
+#define LL_RCC_PREDIV_DIV_1                RCC_CFGR2_PREDIV1_DIV1
+#define LL_RCC_PREDIV_DIV_2                RCC_CFGR2_PREDIV1_DIV2
+#define LL_RCC_PREDIV_DIV_3                RCC_CFGR2_PREDIV1_DIV3
+#define LL_RCC_PREDIV_DIV_4                RCC_CFGR2_PREDIV1_DIV4
+#define LL_RCC_PREDIV_DIV_5                RCC_CFGR2_PREDIV1_DIV5
+#define LL_RCC_PREDIV_DIV_6                RCC_CFGR2_PREDIV1_DIV6
+#define LL_RCC_PREDIV_DIV_7                RCC_CFGR2_PREDIV1_DIV7
+#define LL_RCC_PREDIV_DIV_8                RCC_CFGR2_PREDIV1_DIV8
+#define LL_RCC_PREDIV_DIV_9                RCC_CFGR2_PREDIV1_DIV9
+#define LL_RCC_PREDIV_DIV_10               RCC_CFGR2_PREDIV1_DIV10
+#define LL_RCC_PREDIV_DIV_11               RCC_CFGR2_PREDIV1_DIV11
+#define LL_RCC_PREDIV_DIV_12               RCC_CFGR2_PREDIV1_DIV12
+#define LL_RCC_PREDIV_DIV_13               RCC_CFGR2_PREDIV1_DIV13
+#define LL_RCC_PREDIV_DIV_14               RCC_CFGR2_PREDIV1_DIV14
+#define LL_RCC_PREDIV_DIV_15               RCC_CFGR2_PREDIV1_DIV15
+#define LL_RCC_PREDIV_DIV_16               RCC_CFGR2_PREDIV1_DIV16
+#else
+#define LL_RCC_PREDIV_DIV_1                0x00000000U
+#define LL_RCC_PREDIV_DIV_2                RCC_CFGR_PLLXTPRE
+#endif
+
+#if defined(RCC_PLLI2S_SUPPORT)
+
+#define LL_RCC_PLLI2S_MUL_8                RCC_CFGR2_PLL3MUL8
+#define LL_RCC_PLLI2S_MUL_9                RCC_CFGR2_PLL3MUL9
+#define LL_RCC_PLLI2S_MUL_10               RCC_CFGR2_PLL3MUL10
+#define LL_RCC_PLLI2S_MUL_11               RCC_CFGR2_PLL3MUL11
+#define LL_RCC_PLLI2S_MUL_12               RCC_CFGR2_PLL3MUL12
+#define LL_RCC_PLLI2S_MUL_13               RCC_CFGR2_PLL3MUL13
+#define LL_RCC_PLLI2S_MUL_14               RCC_CFGR2_PLL3MUL14
+#define LL_RCC_PLLI2S_MUL_16               RCC_CFGR2_PLL3MUL16
+#define LL_RCC_PLLI2S_MUL_20               RCC_CFGR2_PLL3MUL20
+
+#endif
+
+#if defined(RCC_PLL2_SUPPORT)
+
+#define LL_RCC_PLL2_MUL_8                  RCC_CFGR2_PLL2MUL8
+#define LL_RCC_PLL2_MUL_9                  RCC_CFGR2_PLL2MUL9
+#define LL_RCC_PLL2_MUL_10                 RCC_CFGR2_PLL2MUL10
+#define LL_RCC_PLL2_MUL_11                 RCC_CFGR2_PLL2MUL11
+#define LL_RCC_PLL2_MUL_12                 RCC_CFGR2_PLL2MUL12
+#define LL_RCC_PLL2_MUL_13                 RCC_CFGR2_PLL2MUL13
+#define LL_RCC_PLL2_MUL_14                 RCC_CFGR2_PLL2MUL14
+#define LL_RCC_PLL2_MUL_16                 RCC_CFGR2_PLL2MUL16
+#define LL_RCC_PLL2_MUL_20                 RCC_CFGR2_PLL2MUL20
+
+#endif
+
+#define LL_RCC_WriteReg(__REG__, __VALUE__) WRITE_REG(RCC->__REG__, (__VALUE__))
+
+#define LL_RCC_ReadReg(__REG__) READ_REG(RCC->__REG__)
+
+#if defined(RCC_CFGR_PLLMULL6_5)
+
+#define __LL_RCC_CALC_PLLCLK_FREQ(__INPUTFREQ__, __PLLMUL__) \
+          (((__PLLMUL__) != RCC_CFGR_PLLMULL6_5) ? \
+              ((__INPUTFREQ__) * ((((__PLLMUL__) & RCC_CFGR_PLLMULL) >> RCC_CFGR_PLLMULL_Pos) + 2U)) :\
+              (((__INPUTFREQ__) * 13U) / 2U))
+
+#else
+
+#define __LL_RCC_CALC_PLLCLK_FREQ(__INPUTFREQ__, __PLLMUL__) ((__INPUTFREQ__) * (((__PLLMUL__) >> RCC_CFGR_PLLMULL_Pos) + 2U))
+#endif
+
+#if defined(RCC_PLLI2S_SUPPORT)
+
+#define __LL_RCC_CALC_PLLI2SCLK_FREQ(__INPUTFREQ__, __PLLI2SMUL__, __PLLI2SDIV__) (((__INPUTFREQ__) * (((__PLLI2SMUL__) >> RCC_CFGR2_PLL3MUL_Pos) + 2U)) / (((__PLLI2SDIV__) >> RCC_CFGR2_PREDIV2_Pos) + 1U))
+#endif
+
+#if defined(RCC_PLL2_SUPPORT)
+
+#define __LL_RCC_CALC_PLL2CLK_FREQ(__INPUTFREQ__, __PLL2MUL__, __PLL2DIV__) (((__INPUTFREQ__) * (((__PLL2MUL__) >> RCC_CFGR2_PLL2MUL_Pos) + 2U)) / (((__PLL2DIV__) >> RCC_CFGR2_PREDIV2_Pos) + 1U))
+#endif
+
+#define __LL_RCC_CALC_HCLK_FREQ(__SYSCLKFREQ__, __AHBPRESCALER__) ((__SYSCLKFREQ__) >> AHBPrescTable[((__AHBPRESCALER__) & RCC_CFGR_HPRE) >>  RCC_CFGR_HPRE_Pos])
+
+#define __LL_RCC_CALC_PCLK1_FREQ(__HCLKFREQ__, __APB1PRESCALER__) ((__HCLKFREQ__) >> APBPrescTable[(__APB1PRESCALER__) >>  RCC_CFGR_PPRE1_Pos])
+
+#define __LL_RCC_CALC_PCLK2_FREQ(__HCLKFREQ__, __APB2PRESCALER__) ((__HCLKFREQ__) >> APBPrescTable[(__APB2PRESCALER__) >>  RCC_CFGR_PPRE2_Pos])
+
+__STATIC_INLINE void LL_RCC_HSE_EnableCSS(void)
+{
+  SET_BIT(RCC->CR, RCC_CR_CSSON);
+}
+
+__STATIC_INLINE void LL_RCC_HSE_EnableBypass(void)
+{
+  SET_BIT(RCC->CR, RCC_CR_HSEBYP);
+}
+
+__STATIC_INLINE void LL_RCC_HSE_DisableBypass(void)
+{
+  CLEAR_BIT(RCC->CR, RCC_CR_HSEBYP);
+}
+
+__STATIC_INLINE void LL_RCC_HSE_Enable(void)
+{
+  SET_BIT(RCC->CR, RCC_CR_HSEON);
+}
+
+__STATIC_INLINE void LL_RCC_HSE_Disable(void)
+{
+  CLEAR_BIT(RCC->CR, RCC_CR_HSEON);
+}
+
+__STATIC_INLINE uint32_t LL_RCC_HSE_IsReady(void)
+{
+  return (READ_BIT(RCC->CR, RCC_CR_HSERDY) == (RCC_CR_HSERDY));
+}
+
+#if defined(RCC_CFGR2_PREDIV2)
+
+__STATIC_INLINE uint32_t LL_RCC_HSE_GetPrediv2(void)
+{
+  return (uint32_t)(READ_BIT(RCC->CFGR2, RCC_CFGR2_PREDIV2));
+}
+#endif
+
+__STATIC_INLINE void LL_RCC_HSI_Enable(void)
+{
+  SET_BIT(RCC->CR, RCC_CR_HSION);
+}
+
+__STATIC_INLINE void LL_RCC_HSI_Disable(void)
+{
+  CLEAR_BIT(RCC->CR, RCC_CR_HSION);
+}
+
+__STATIC_INLINE uint32_t LL_RCC_HSI_IsReady(void)
+{
+  return (READ_BIT(RCC->CR, RCC_CR_HSIRDY) == (RCC_CR_HSIRDY));
+}
+
+__STATIC_INLINE uint32_t LL_RCC_HSI_GetCalibration(void)
+{
+  return (uint32_t)(READ_BIT(RCC->CR, RCC_CR_HSICAL) >> RCC_CR_HSICAL_Pos);
+}
+
+__STATIC_INLINE void LL_RCC_HSI_SetCalibTrimming(uint32_t Value)
+{
+  MODIFY_REG(RCC->CR, RCC_CR_HSITRIM, Value << RCC_CR_HSITRIM_Pos);
+}
+
+__STATIC_INLINE uint32_t LL_RCC_HSI_GetCalibTrimming(void)
+{
+  return (uint32_t)(READ_BIT(RCC->CR, RCC_CR_HSITRIM) >> RCC_CR_HSITRIM_Pos);
+}
+
+__STATIC_INLINE void LL_RCC_LSE_Enable(void)
+{
+  SET_BIT(RCC->BDCR, RCC_BDCR_LSEON);
+}
+
+__STATIC_INLINE void LL_RCC_LSE_Disable(void)
+{
+  CLEAR_BIT(RCC->BDCR, RCC_BDCR_LSEON);
+}
+
+__STATIC_INLINE void LL_RCC_LSE_EnableBypass(void)
+{
+  SET_BIT(RCC->BDCR, RCC_BDCR_LSEBYP);
+}
+
+__STATIC_INLINE void LL_RCC_LSE_DisableBypass(void)
+{
+  CLEAR_BIT(RCC->BDCR, RCC_BDCR_LSEBYP);
+}
+
+__STATIC_INLINE uint32_t LL_RCC_LSE_IsReady(void)
+{
+  return (READ_BIT(RCC->BDCR, RCC_BDCR_LSERDY) == (RCC_BDCR_LSERDY));
+}
+
+__STATIC_INLINE void LL_RCC_LSI_Enable(void)
+{
+  SET_BIT(RCC->CSR, RCC_CSR_LSION);
+}
+
+__STATIC_INLINE void LL_RCC_LSI_Disable(void)
+{
+  CLEAR_BIT(RCC->CSR, RCC_CSR_LSION);
+}
+
+__STATIC_INLINE uint32_t LL_RCC_LSI_IsReady(void)
+{
+  return (READ_BIT(RCC->CSR, RCC_CSR_LSIRDY) == (RCC_CSR_LSIRDY));
+}
+
+__STATIC_INLINE void LL_RCC_SetSysClkSource(uint32_t Source)
+{
+  MODIFY_REG(RCC->CFGR, RCC_CFGR_SW, Source);
+}
+
+__STATIC_INLINE uint32_t LL_RCC_GetSysClkSource(void)
+{
+  return (uint32_t)(READ_BIT(RCC->CFGR, RCC_CFGR_SWS));
+}
+
+__STATIC_INLINE void LL_RCC_SetAHBPrescaler(uint32_t Prescaler)
+{
+  MODIFY_REG(RCC->CFGR, RCC_CFGR_HPRE, Prescaler);
+}
+
+__STATIC_INLINE void LL_RCC_SetAPB1Prescaler(uint32_t Prescaler)
+{
+  MODIFY_REG(RCC->CFGR, RCC_CFGR_PPRE1, Prescaler);
+}
+
+__STATIC_INLINE void LL_RCC_SetAPB2Prescaler(uint32_t Prescaler)
+{
+  MODIFY_REG(RCC->CFGR, RCC_CFGR_PPRE2, Prescaler);
+}
+
+__STATIC_INLINE uint32_t LL_RCC_GetAHBPrescaler(void)
+{
+  return (uint32_t)(READ_BIT(RCC->CFGR, RCC_CFGR_HPRE));
+}
+
+__STATIC_INLINE uint32_t LL_RCC_GetAPB1Prescaler(void)
+{
+  return (uint32_t)(READ_BIT(RCC->CFGR, RCC_CFGR_PPRE1));
+}
+
+__STATIC_INLINE uint32_t LL_RCC_GetAPB2Prescaler(void)
+{
+  return (uint32_t)(READ_BIT(RCC->CFGR, RCC_CFGR_PPRE2));
+}
+
+__STATIC_INLINE void LL_RCC_ConfigMCO(uint32_t MCOxSource)
+{
+  MODIFY_REG(RCC->CFGR, RCC_CFGR_MCOSEL, MCOxSource);
+}
+
+#if defined(RCC_CFGR2_I2S2SRC)
+
+__STATIC_INLINE void LL_RCC_SetI2SClockSource(uint32_t I2SxSource)
+{
+  MODIFY_REG(RCC->CFGR2, (I2SxSource & 0xFFFF0000U), (I2SxSource << 16U));
+}
+#endif
+
+#if defined(USB_OTG_FS) || defined(USB)
+
+__STATIC_INLINE void LL_RCC_SetUSBClockSource(uint32_t USBxSource)
+{
+#if defined(RCC_CFGR_USBPRE)
+  MODIFY_REG(RCC->CFGR, RCC_CFGR_USBPRE, USBxSource);
+#else
+  MODIFY_REG(RCC->CFGR, RCC_CFGR_OTGFSPRE, USBxSource);
+#endif
+}
+#endif
+
+__STATIC_INLINE void LL_RCC_SetADCClockSource(uint32_t ADCxSource)
+{
+  MODIFY_REG(RCC->CFGR, RCC_CFGR_ADCPRE, ADCxSource);
+}
+
+#if defined(RCC_CFGR2_I2S2SRC)
+
+__STATIC_INLINE uint32_t LL_RCC_GetI2SClockSource(uint32_t I2Sx)
+{
+  return (uint32_t)(READ_BIT(RCC->CFGR2, I2Sx) >> 16U | I2Sx);
+}
+#endif
+
+#if defined(USB_OTG_FS) || defined(USB)
+
+__STATIC_INLINE uint32_t LL_RCC_GetUSBClockSource(uint32_t USBx)
+{
+  return (uint32_t)(READ_BIT(RCC->CFGR, USBx));
+}
+#endif
+
+__STATIC_INLINE uint32_t LL_RCC_GetADCClockSource(uint32_t ADCx)
+{
+  return (uint32_t)(READ_BIT(RCC->CFGR, ADCx));
+}
+
+__STATIC_INLINE void LL_RCC_SetRTCClockSource(uint32_t Source)
+{
+  MODIFY_REG(RCC->BDCR, RCC_BDCR_RTCSEL, Source);
+}
+
+__STATIC_INLINE uint32_t LL_RCC_GetRTCClockSource(void)
+{
+  return (uint32_t)(READ_BIT(RCC->BDCR, RCC_BDCR_RTCSEL));
+}
+
+__STATIC_INLINE void LL_RCC_EnableRTC(void)
+{
+  SET_BIT(RCC->BDCR, RCC_BDCR_RTCEN);
+}
+
+__STATIC_INLINE void LL_RCC_DisableRTC(void)
+{
+  CLEAR_BIT(RCC->BDCR, RCC_BDCR_RTCEN);
+}
+
+__STATIC_INLINE uint32_t LL_RCC_IsEnabledRTC(void)
+{
+  return (READ_BIT(RCC->BDCR, RCC_BDCR_RTCEN) == (RCC_BDCR_RTCEN));
+}
+
+__STATIC_INLINE void LL_RCC_ForceBackupDomainReset(void)
+{
+  SET_BIT(RCC->BDCR, RCC_BDCR_BDRST);
+}
+
+__STATIC_INLINE void LL_RCC_ReleaseBackupDomainReset(void)
+{
+  CLEAR_BIT(RCC->BDCR, RCC_BDCR_BDRST);
+}
+
+__STATIC_INLINE void LL_RCC_PLL_Enable(void)
+{
+  SET_BIT(RCC->CR, RCC_CR_PLLON);
+}
+
+__STATIC_INLINE void LL_RCC_PLL_Disable(void)
+{
+  CLEAR_BIT(RCC->CR, RCC_CR_PLLON);
+}
+
+__STATIC_INLINE uint32_t LL_RCC_PLL_IsReady(void)
+{
+  return (READ_BIT(RCC->CR, RCC_CR_PLLRDY) == (RCC_CR_PLLRDY));
+}
+
+__STATIC_INLINE void LL_RCC_PLL_ConfigDomain_SYS(uint32_t Source, uint32_t PLLMul)
+{
+  MODIFY_REG(RCC->CFGR, RCC_CFGR_PLLSRC | RCC_CFGR_PLLXTPRE | RCC_CFGR_PLLMULL,
+             (Source & (RCC_CFGR_PLLSRC | RCC_CFGR_PLLXTPRE)) | PLLMul);
+#if defined(RCC_CFGR2_PREDIV1)
+#if defined(RCC_CFGR2_PREDIV1SRC)
+  MODIFY_REG(RCC->CFGR2, (RCC_CFGR2_PREDIV1 | RCC_CFGR2_PREDIV1SRC),
+             (Source & RCC_CFGR2_PREDIV1) | ((Source & (RCC_CFGR2_PREDIV1SRC << 4U)) >> 4U));
+#else
+  MODIFY_REG(RCC->CFGR2, RCC_CFGR2_PREDIV1, (Source & RCC_CFGR2_PREDIV1));
+#endif
+#endif
+}
+
+__STATIC_INLINE void LL_RCC_PLL_SetMainSource(uint32_t PLLSource)
+{
+#if defined(RCC_CFGR2_PREDIV1SRC)
+  MODIFY_REG(RCC->CFGR2, RCC_CFGR2_PREDIV1SRC, ((PLLSource & (RCC_CFGR2_PREDIV1SRC << 4U)) >> 4U));
+#endif
+  MODIFY_REG(RCC->CFGR, RCC_CFGR_PLLSRC, PLLSource);
+}
+
+__STATIC_INLINE uint32_t LL_RCC_PLL_GetMainSource(void)
+{
+#if defined(RCC_CFGR2_PREDIV1SRC)
+  uint32_t pllsrc = READ_BIT(RCC->CFGR, RCC_CFGR_PLLSRC);
+  uint32_t predivsrc = (uint32_t)(READ_BIT(RCC->CFGR2, RCC_CFGR2_PREDIV1SRC) << 4U);
+  return (uint32_t)(pllsrc | predivsrc);
+#else
+  return (uint32_t)(READ_BIT(RCC->CFGR, RCC_CFGR_PLLSRC));
+#endif
+}
+
+__STATIC_INLINE uint32_t LL_RCC_PLL_GetMultiplicator(void)
+{
+  return (uint32_t)(READ_BIT(RCC->CFGR, RCC_CFGR_PLLMULL));
+}
+
+__STATIC_INLINE uint32_t LL_RCC_PLL_GetPrediv(void)
+{
+#if defined(RCC_CFGR2_PREDIV1)
+  return (uint32_t)(READ_BIT(RCC->CFGR2, RCC_CFGR2_PREDIV1));
+#else
+  return (uint32_t)(READ_BIT(RCC->CFGR, RCC_CFGR_PLLXTPRE) >> RCC_CFGR_PLLXTPRE_Pos);
+#endif
+}
+
+#if defined(RCC_PLLI2S_SUPPORT)
+
+__STATIC_INLINE void LL_RCC_PLLI2S_Enable(void)
+{
+  SET_BIT(RCC->CR, RCC_CR_PLL3ON);
+}
+
+__STATIC_INLINE void LL_RCC_PLLI2S_Disable(void)
+{
+  CLEAR_BIT(RCC->CR, RCC_CR_PLL3ON);
+}
+
+__STATIC_INLINE uint32_t LL_RCC_PLLI2S_IsReady(void)
+{
+  return (READ_BIT(RCC->CR, RCC_CR_PLL3RDY) == (RCC_CR_PLL3RDY));
+}
+
+__STATIC_INLINE void LL_RCC_PLL_ConfigDomain_PLLI2S(uint32_t Divider, uint32_t Multiplicator)
+{
+  MODIFY_REG(RCC->CFGR2, RCC_CFGR2_PREDIV2 | RCC_CFGR2_PLL3MUL, Divider | Multiplicator);
+}
+
+__STATIC_INLINE uint32_t LL_RCC_PLLI2S_GetMultiplicator(void)
+{
+  return (uint32_t)(READ_BIT(RCC->CFGR2, RCC_CFGR2_PLL3MUL));
+}
+
+#endif
+
+#if defined(RCC_PLL2_SUPPORT)
+
+__STATIC_INLINE void LL_RCC_PLL2_Enable(void)
+{
+  SET_BIT(RCC->CR, RCC_CR_PLL2ON);
+}
+
+__STATIC_INLINE void LL_RCC_PLL2_Disable(void)
+{
+  CLEAR_BIT(RCC->CR, RCC_CR_PLL2ON);
+}
+
+__STATIC_INLINE uint32_t LL_RCC_PLL2_IsReady(void)
+{
+  return (READ_BIT(RCC->CR, RCC_CR_PLL2RDY) == (RCC_CR_PLL2RDY));
+}
+
+__STATIC_INLINE void LL_RCC_PLL_ConfigDomain_PLL2(uint32_t Divider, uint32_t Multiplicator)
+{
+  MODIFY_REG(RCC->CFGR2, RCC_CFGR2_PREDIV2 | RCC_CFGR2_PLL2MUL, Divider | Multiplicator);
+}
+
+__STATIC_INLINE uint32_t LL_RCC_PLL2_GetMultiplicator(void)
+{
+  return (uint32_t)(READ_BIT(RCC->CFGR2, RCC_CFGR2_PLL2MUL));
+}
+
+#endif
+
+__STATIC_INLINE void LL_RCC_ClearFlag_LSIRDY(void)
+{
+  SET_BIT(RCC->CIR, RCC_CIR_LSIRDYC);
+}
+
+__STATIC_INLINE void LL_RCC_ClearFlag_LSERDY(void)
+{
+  SET_BIT(RCC->CIR, RCC_CIR_LSERDYC);
+}
+
+__STATIC_INLINE void LL_RCC_ClearFlag_HSIRDY(void)
+{
+  SET_BIT(RCC->CIR, RCC_CIR_HSIRDYC);
+}
+
+__STATIC_INLINE void LL_RCC_ClearFlag_HSERDY(void)
+{
+  SET_BIT(RCC->CIR, RCC_CIR_HSERDYC);
+}
+
+__STATIC_INLINE void LL_RCC_ClearFlag_PLLRDY(void)
+{
+  SET_BIT(RCC->CIR, RCC_CIR_PLLRDYC);
+}
+
+#if defined(RCC_PLLI2S_SUPPORT)
+
+__STATIC_INLINE void LL_RCC_ClearFlag_PLLI2SRDY(void)
+{
+  SET_BIT(RCC->CIR, RCC_CIR_PLL3RDYC);
+}
+#endif
+
+#if defined(RCC_PLL2_SUPPORT)
+
+__STATIC_INLINE void LL_RCC_ClearFlag_PLL2RDY(void)
+{
+  SET_BIT(RCC->CIR, RCC_CIR_PLL2RDYC);
+}
+#endif
+
+__STATIC_INLINE void LL_RCC_ClearFlag_HSECSS(void)
+{
+  SET_BIT(RCC->CIR, RCC_CIR_CSSC);
+}
+
+__STATIC_INLINE uint32_t LL_RCC_IsActiveFlag_LSIRDY(void)
+{
+  return (READ_BIT(RCC->CIR, RCC_CIR_LSIRDYF) == (RCC_CIR_LSIRDYF));
+}
+
+__STATIC_INLINE uint32_t LL_RCC_IsActiveFlag_LSERDY(void)
+{
+  return (READ_BIT(RCC->CIR, RCC_CIR_LSERDYF) == (RCC_CIR_LSERDYF));
+}
+
+__STATIC_INLINE uint32_t LL_RCC_IsActiveFlag_HSIRDY(void)
+{
+  return (READ_BIT(RCC->CIR, RCC_CIR_HSIRDYF) == (RCC_CIR_HSIRDYF));
+}
+
+__STATIC_INLINE uint32_t LL_RCC_IsActiveFlag_HSERDY(void)
+{
+  return (READ_BIT(RCC->CIR, RCC_CIR_HSERDYF) == (RCC_CIR_HSERDYF));
+}
+
+__STATIC_INLINE uint32_t LL_RCC_IsActiveFlag_PLLRDY(void)
+{
+  return (READ_BIT(RCC->CIR, RCC_CIR_PLLRDYF) == (RCC_CIR_PLLRDYF));
+}
+
+#if defined(RCC_PLLI2S_SUPPORT)
+
+__STATIC_INLINE uint32_t LL_RCC_IsActiveFlag_PLLI2SRDY(void)
+{
+  return (READ_BIT(RCC->CIR, RCC_CIR_PLL3RDYF) == (RCC_CIR_PLL3RDYF));
+}
+#endif
+
+#if defined(RCC_PLL2_SUPPORT)
+
+__STATIC_INLINE uint32_t LL_RCC_IsActiveFlag_PLL2RDY(void)
+{
+  return (READ_BIT(RCC->CIR, RCC_CIR_PLL2RDYF) == (RCC_CIR_PLL2RDYF));
+}
+#endif
+
+__STATIC_INLINE uint32_t LL_RCC_IsActiveFlag_HSECSS(void)
+{
+  return (READ_BIT(RCC->CIR, RCC_CIR_CSSF) == (RCC_CIR_CSSF));
+}
+
+__STATIC_INLINE uint32_t LL_RCC_IsActiveFlag_IWDGRST(void)
+{
+  return (READ_BIT(RCC->CSR, RCC_CSR_IWDGRSTF) == (RCC_CSR_IWDGRSTF));
+}
+
+__STATIC_INLINE uint32_t LL_RCC_IsActiveFlag_LPWRRST(void)
+{
+  return (READ_BIT(RCC->CSR, RCC_CSR_LPWRRSTF) == (RCC_CSR_LPWRRSTF));
+}
+
+__STATIC_INLINE uint32_t LL_RCC_IsActiveFlag_PINRST(void)
+{
+  return (READ_BIT(RCC->CSR, RCC_CSR_PINRSTF) == (RCC_CSR_PINRSTF));
+}
+
+__STATIC_INLINE uint32_t LL_RCC_IsActiveFlag_PORRST(void)
+{
+  return (READ_BIT(RCC->CSR, RCC_CSR_PORRSTF) == (RCC_CSR_PORRSTF));
+}
+
+__STATIC_INLINE uint32_t LL_RCC_IsActiveFlag_SFTRST(void)
+{
+  return (READ_BIT(RCC->CSR, RCC_CSR_SFTRSTF) == (RCC_CSR_SFTRSTF));
+}
+
+__STATIC_INLINE uint32_t LL_RCC_IsActiveFlag_WWDGRST(void)
+{
+  return (READ_BIT(RCC->CSR, RCC_CSR_WWDGRSTF) == (RCC_CSR_WWDGRSTF));
+}
+
+__STATIC_INLINE void LL_RCC_ClearResetFlags(void)
+{
+  SET_BIT(RCC->CSR, RCC_CSR_RMVF);
+}
+
+__STATIC_INLINE void LL_RCC_EnableIT_LSIRDY(void)
+{
+  SET_BIT(RCC->CIR, RCC_CIR_LSIRDYIE);
+}
+
+__STATIC_INLINE void LL_RCC_EnableIT_LSERDY(void)
+{
+  SET_BIT(RCC->CIR, RCC_CIR_LSERDYIE);
+}
+
+__STATIC_INLINE void LL_RCC_EnableIT_HSIRDY(void)
+{
+  SET_BIT(RCC->CIR, RCC_CIR_HSIRDYIE);
+}
+
+__STATIC_INLINE void LL_RCC_EnableIT_HSERDY(void)
+{
+  SET_BIT(RCC->CIR, RCC_CIR_HSERDYIE);
+}
+
+__STATIC_INLINE void LL_RCC_EnableIT_PLLRDY(void)
+{
+  SET_BIT(RCC->CIR, RCC_CIR_PLLRDYIE);
+}
+
+#if defined(RCC_PLLI2S_SUPPORT)
+
+__STATIC_INLINE void LL_RCC_EnableIT_PLLI2SRDY(void)
+{
+  SET_BIT(RCC->CIR, RCC_CIR_PLL3RDYIE);
+}
+#endif
+
+#if defined(RCC_PLL2_SUPPORT)
+
+__STATIC_INLINE void LL_RCC_EnableIT_PLL2RDY(void)
+{
+  SET_BIT(RCC->CIR, RCC_CIR_PLL2RDYIE);
+}
+#endif
+
+__STATIC_INLINE void LL_RCC_DisableIT_LSIRDY(void)
+{
+  CLEAR_BIT(RCC->CIR, RCC_CIR_LSIRDYIE);
+}
+
+__STATIC_INLINE void LL_RCC_DisableIT_LSERDY(void)
+{
+  CLEAR_BIT(RCC->CIR, RCC_CIR_LSERDYIE);
+}
+
+__STATIC_INLINE void LL_RCC_DisableIT_HSIRDY(void)
+{
+  CLEAR_BIT(RCC->CIR, RCC_CIR_HSIRDYIE);
+}
+
+__STATIC_INLINE void LL_RCC_DisableIT_HSERDY(void)
+{
+  CLEAR_BIT(RCC->CIR, RCC_CIR_HSERDYIE);
+}
+
+__STATIC_INLINE void LL_RCC_DisableIT_PLLRDY(void)
+{
+  CLEAR_BIT(RCC->CIR, RCC_CIR_PLLRDYIE);
+}
+
+#if defined(RCC_PLLI2S_SUPPORT)
+
+__STATIC_INLINE void LL_RCC_DisableIT_PLLI2SRDY(void)
+{
+  CLEAR_BIT(RCC->CIR, RCC_CIR_PLL3RDYIE);
+}
+#endif
+
+#if defined(RCC_PLL2_SUPPORT)
+
+__STATIC_INLINE void LL_RCC_DisableIT_PLL2RDY(void)
+{
+  CLEAR_BIT(RCC->CIR, RCC_CIR_PLL2RDYIE);
+}
+#endif
+
+__STATIC_INLINE uint32_t LL_RCC_IsEnabledIT_LSIRDY(void)
+{
+  return (READ_BIT(RCC->CIR, RCC_CIR_LSIRDYIE) == (RCC_CIR_LSIRDYIE));
+}
+
+__STATIC_INLINE uint32_t LL_RCC_IsEnabledIT_LSERDY(void)
+{
+  return (READ_BIT(RCC->CIR, RCC_CIR_LSERDYIE) == (RCC_CIR_LSERDYIE));
+}
+
+__STATIC_INLINE uint32_t LL_RCC_IsEnabledIT_HSIRDY(void)
+{
+  return (READ_BIT(RCC->CIR, RCC_CIR_HSIRDYIE) == (RCC_CIR_HSIRDYIE));
+}
+
+__STATIC_INLINE uint32_t LL_RCC_IsEnabledIT_HSERDY(void)
+{
+  return (READ_BIT(RCC->CIR, RCC_CIR_HSERDYIE) == (RCC_CIR_HSERDYIE));
+}
+
+__STATIC_INLINE uint32_t LL_RCC_IsEnabledIT_PLLRDY(void)
+{
+  return (READ_BIT(RCC->CIR, RCC_CIR_PLLRDYIE) == (RCC_CIR_PLLRDYIE));
+}
+
+#if defined(RCC_PLLI2S_SUPPORT)
+
+__STATIC_INLINE uint32_t LL_RCC_IsEnabledIT_PLLI2SRDY(void)
+{
+  return (READ_BIT(RCC->CIR, RCC_CIR_PLL3RDYIE) == (RCC_CIR_PLL3RDYIE));
+}
+#endif
+
+#if defined(RCC_PLL2_SUPPORT)
+
+__STATIC_INLINE uint32_t LL_RCC_IsEnabledIT_PLL2RDY(void)
+{
+  return (READ_BIT(RCC->CIR, RCC_CIR_PLL2RDYIE) == (RCC_CIR_PLL2RDYIE));
+}
+#endif
+
+#if defined(USE_FULL_LL_DRIVER)
+
+ErrorStatus LL_RCC_DeInit(void);
+
+void        LL_RCC_GetSystemClocksFreq(LL_RCC_ClocksTypeDef *RCC_Clocks);
+#if defined(RCC_CFGR2_I2S2SRC)
+uint32_t    LL_RCC_GetI2SClockFreq(uint32_t I2SxSource);
+#endif
+#if defined(USB_OTG_FS) || defined(USB)
+uint32_t    LL_RCC_GetUSBClockFreq(uint32_t USBxSource);
+#endif
+uint32_t    LL_RCC_GetADCClockFreq(uint32_t ADCxSource);
+
+#endif
+
+#endif
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif
+
