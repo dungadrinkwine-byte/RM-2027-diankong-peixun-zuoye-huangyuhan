@@ -45,6 +45,7 @@ static int      s_lastPrintDeg    = -999;
 /* USER CODE BEGIN PFP */
 void SystemClock_Config(void);
 static void Display_Update(float angle);
+static void Uart_SendBanner(void);
 static uint8_t Key_Scan(float *delta);
 static void Heartbeat_Task(void);
 /* USER CODE END PFP */
@@ -56,6 +57,15 @@ int _write(int fd, char *ptr, int len)
   (void)fd;
   HAL_UART_Transmit(&huart1, (uint8_t *)ptr, (uint16_t)len, UART_TIMEOUT_MS);
   return len;
+}
+
+/* 上电自检：不经 stdio 缓冲，直接用 HAL 发一串固定字符。
+   串口助手里看得到这一行 → 链路（接线/波特率/共地）没问题，问题在 printf 重定向；
+   看不到 → 问题在硬件链路，与代码无关。 */
+static void Uart_SendBanner(void)
+{
+  const char msg[] = "\r\n[BOOT] RM-2027 Servo, USART1 115200 8N1\r\n";
+  HAL_UART_Transmit(&huart1, (uint8_t *)msg, (uint16_t)(sizeof(msg) - 1U), UART_TIMEOUT_MS);
 }
 
 static void Display_Update(float angle)
@@ -165,6 +175,9 @@ int main(void)
   MX_USART1_UART_Init();
 
   /* USER CODE BEGIN 2 */
+  setvbuf(stdout, NULL, _IONBF, 0);   /* printf 不缓冲，立即经 _write 发出 */
+  Uart_SendBanner();
+
   OLED_Init();
   OLED_Clear();
 
